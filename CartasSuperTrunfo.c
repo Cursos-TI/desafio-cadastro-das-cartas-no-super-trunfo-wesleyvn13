@@ -7,7 +7,7 @@ int main() {
     char codigo_da_carta[5], codigo_da_carta2[5]; // Armazena o codigo da carta ex "A01".
     char nomeCidade[15], nomeCidade2[15]; // Armazena o nome daS cidadeS.
     int populacao, populacao2, numero_de_pontos_turisticos, numero_de_pontos_turisticos2; // Armazena o numero da população e quantidade de pontos turisticos.
-    float area, area2, pib, pib2; // Armazena a area da cidade e pib.
+    float area, area2, pib, pib2, pibPerCapita, pibPerCapita2, densidadePopulacional, densidadePopulacional2; // Armazena a area da cidade, pib, pib per capita e densidade populacional.
 
 
     //Captura dos dados do usuario.
@@ -38,8 +38,12 @@ int main() {
      printf("Tamanho da area: %f km²\n", area); // Exibe a area da cidade.
      printf("PIB da Cidade: R$ %f milhoes\n", pib); // Exibe o PIB.
      printf("Numero de Pontos Turisticos: %d\n", numero_de_pontos_turisticos); // Exibe a quantidade de pontos turisticos.
-     printf("Densidade Populacional: %.2f\n", (float) populacao / area); // Calcula a densidade populacional da cidade 2
-     printf("PIB per Capita: %.2f\n", pib / (float) populacao); // Calcula o pib per Capita da cidade 2
+     
+     densidadePopulacional = (float) populacao / area;
+     pibPerCapita = pib / (float) populacao;
+
+     printf("Densidade Populacional: %.2f\n", densidadePopulacional); // Calcula a densidade populacional da cidade 2
+     printf("PIB per Capita: %.2f\n", pibPerCapita); // Calcula o pib per Capita da cidade 2
 
      printf("\n=== Cadastre a Cidade ===\n");
 
@@ -69,9 +73,14 @@ int main() {
      printf("Tamanho da area: %f km²\n", area2); // Exibe a area da cidade.
      printf("PIB da Cidade: R$ %f milhoes\n", pib2); // Exibe o PIB.
      printf("Numero de Pontos Turisticos: %d\n", numero_de_pontos_turisticos); // Exibe a quantidade de pontos turisticos.
-     printf("Densidade Populacional: %.2f\n", (float) populacao2 / area2); // Calcula a densidade populacional da cidade 2
-     printf("PIB per Capita: %.2f\n", pib2 / (float) populacao2); // Calcula o pib per Capita da cidade 2
+     
+     densidadePopulacional2 = (float) populacao / area;
+     pibPerCapita2 = pib / (float) populacao;
+
+     printf("Densidade Populacional: %.2f\n", densidadePopulacional2); // Calcula a densidade populacional da cidade 2
+     printf("PIB per Capita: %.2f\n", pibPerCapita2); // Calcula o pib per Capita da cidade 2
      printf("\n");
      printf("\n");
+     
     return 0; // Indica que o programa foi executado com sucesso.
 }
