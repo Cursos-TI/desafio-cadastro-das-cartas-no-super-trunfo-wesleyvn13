@@ -8,10 +8,6 @@ int main() {
     char nomeCidade[15], nomeCidade2[15]; // Armazena o nome daS cidadeS.
     int populacao, populacao2, numero_de_pontos_turisticos, numero_de_pontos_turisticos2; // Armazena o numero da população e quantidade de pontos turisticos.
     float area, area2, pib, pib2, pibPerCapita, pibPerCapita2, densidadePopulacional, densidadePopulacional2; // Armazena a area da cidade, pib, pib per capita e densidade populacional.
-
-    //Variaveis Para a Comparação:
-
-    int resultPopulacao, resultArea, resultPib, resultPt, resultDp, resultPibP, resultSuper;
     float superPoder, superPoder2;
 
     //Captura dos dados do usuario.
@@ -87,36 +83,25 @@ int main() {
      printf("\n");
 
    
-// Compara e calcula os atributos das cartas, retornando 1 ou 0.
-resultPopulacao = populacao > populacao2; //compara a populaçao.
 
-resultArea = area > area2; //compara a area.
 
-resultPib = pib > pib2; //compara o PIB.
 
-resultPt = numero_de_pontos_turisticos > numero_de_pontos_turisticos2; //compara o numero de Pontos turisticos.
-
-resultDp = densidadePopulacional <  densidadePopulacional2; //compara a Densidade Populacional.
-
-resultPibP = pibPerCapita > pibPerCapita2; //compara o PIB Per Capita.
 
 superPoder = (float)populacao + area + (float)numero_de_pontos_turisticos + densidadePopulacional + pibPerCapita; //Calcula o Super Poder da Cidade 1.
 
 superPoder2 = (float)populacao2 + area2 + (float)numero_de_pontos_turisticos2 + densidadePopulacional2 + pibPerCapita2; //Calcula o Super Poder da Cidade 2.
 
-resultSuper = superPoder + superPoder2;  //compara o super poder.
+
 
 // Mostra o resultado da comparação para o Usuario.
+// Aqui a comparação é feita diretamente no codigo sem a necessidade de perguntar ao usuario.
 
-printf("CASO '1' PONTO PARA CIDADE 1.  CASO '0' PONTO PARA A CIDADE 2");
+if (populacao > populacao2) {
+    printf("a carta 1 ( %s ) venceu!", nomeCidade);
+} else {
+    printf("a carta 2 ( %s ) venceu!", nomeCidade2);
+};
 
-printf("Populacao: %d\n", resultPopulacao);
-printf("Area: %d\n", resultArea);
-printf("PIB: %d\n", resultPib);
-printf("Pontos Turisticos: %d\n", resultPt);
-printf("Densidade Populacional: %d\n", resultDp);
-printf("Pib per Capita: %d\n", resultPibP);
-printf("Super Poder: %d\n", resultSuper);
      
     return 0; // Indica que o programa foi executado com sucesso.
 }
