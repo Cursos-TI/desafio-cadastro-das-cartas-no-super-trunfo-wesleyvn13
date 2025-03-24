@@ -1,5 +1,5 @@
 #include <stdio.h>
- //Este codigo é para o desafio Novato. O desafio sugere o cadastramento de duas cartas, sem usar estruturas de repetição e estruturas de descisão.
+ //Este codigo é para o desafio Mestre . O desafio sugere a comparação entre as duas cartas a serem cadastradas. 
  // ******* OBS: A cidade é mostrada logo após ser cadastrada.*******
 int main() {
     // Declaração das variaveis para guardar os dados das cidades.
@@ -9,6 +9,10 @@ int main() {
     int populacao, populacao2, numero_de_pontos_turisticos, numero_de_pontos_turisticos2; // Armazena o numero da população e quantidade de pontos turisticos.
     float area, area2, pib, pib2, pibPerCapita, pibPerCapita2, densidadePopulacional, densidadePopulacional2; // Armazena a area da cidade, pib, pib per capita e densidade populacional.
 
+    //Variaveis Para a Comparação:
+
+    int resultPopulacao, resultArea, resultPib, resultPt, resultDp, resultPibP, resultSuper;
+    float superPoder, superPoder2;
 
     //Captura dos dados do usuario.
 
@@ -74,13 +78,45 @@ int main() {
      printf("PIB da Cidade: R$ %f milhoes\n", pib2); // Exibe o PIB.
      printf("Numero de Pontos Turisticos: %d\n", numero_de_pontos_turisticos); // Exibe a quantidade de pontos turisticos.
      
-     densidadePopulacional2 = (float) populacao / area;
-     pibPerCapita2 = pib / (float) populacao;
+     densidadePopulacional2 = (float) populacao2 / area2;
+     pibPerCapita2 = pib2 / (float) populacao2;
 
      printf("Densidade Populacional: %.2f\n", densidadePopulacional2); // Calcula a densidade populacional da cidade 2
      printf("PIB per Capita: %.2f\n", pibPerCapita2); // Calcula o pib per Capita da cidade 2
      printf("\n");
      printf("\n");
+
+   
+// Compara e calcula os atributos das cartas, retornando 1 ou 0.
+resultPopulacao = populacao > populacao2; //compara a populaçao.
+
+resultArea = area > area2; //compara a area.
+
+resultPib = pib > pib2; //compara o PIB.
+
+resultPt = numero_de_pontos_turisticos > numero_de_pontos_turisticos2; //compara o numero de Pontos turisticos.
+
+resultDp = densidadePopulacional <  densidadePopulacional2; //compara a Densidade Populacional.
+
+resultPibP = pibPerCapita > pibPerCapita2; //compara o PIB Per Capita.
+
+superPoder = (float)populacao + area + (float)numero_de_pontos_turisticos + densidadePopulacional + pibPerCapita; //Calcula o Super Poder da Cidade 1.
+
+superPoder2 = (float)populacao2 + area2 + (float)numero_de_pontos_turisticos2 + densidadePopulacional2 + pibPerCapita2; //Calcula o Super Poder da Cidade 2.
+
+resultSuper = superPoder + superPoder2;  //compara o super poder.
+
+// Mostra o resultado da comparação para o Usuario.
+
+printf("CASO '1' PONTO PARA CIDADE 1.  CASO '0' PONTO PARA A CIDADE 2");
+
+printf("Populacao: %d\n", resultPopulacao);
+printf("Area: %d\n", resultArea);
+printf("PIB: %d\n", resultPib);
+printf("Pontos Turisticos: %d\n", resultPt);
+printf("Densidade Populacional: %d\n", resultDp);
+printf("Pib per Capita: %d\n", resultPibP);
+printf("Super Poder: %d\n", resultSuper);
      
     return 0; // Indica que o programa foi executado com sucesso.
 }
