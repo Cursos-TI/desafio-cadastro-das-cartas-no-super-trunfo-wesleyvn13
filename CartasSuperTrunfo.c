@@ -93,91 +93,371 @@ superPoder2 = (float)populacao2 + area2 + (float)numero_de_pontos_turisticos2 + 
 
 
 
-// Mostra o resultado da comparação para o Usuario.
-// Aqui a comparação é feita diretamente no codigo sem a necessidade de perguntar ao usuario.
-printf("Escolha um indicador para comparar: \n");
-printf("1 - Populacao.\n");
-printf("2 - area.\n");
-printf("3 - PIB.\n");
-printf("4 - Pontos Turisticos.\n");
-printf("5 - Dencidade Populacional.\n");
-printf("6 - PIB PerCapta.\n");
-scanf("%d", &opcao);
+//Menu Dinamico
 
-switch (opcao)
-{
-case 1:
-if (populacao > populacao2) {
-    printf("a populacao da cidade 1: %s e de %d\n", nomeCidade, populacao);
-    printf("a populacao da cidade 2: %s e de %d\n", nomeCidade2, populacao2);
-    printf("a carta 1 ( %s ) venceu!\n", nomeCidade);
-} else {
-    printf("a populacao da cidade 1: %s e de %d\n", nomeCidade, populacao);
-    printf("a populacao da cidade 2: %s e de %d\n", nomeCidade2, populacao2);
-    printf("a carta 2 ( %s ) venceu!\n", nomeCidade2);
-};
-    break;
-case 2:
-if (area > area2) {
-    printf("a area da cidade 1: %s e de %f\n", nomeCidade, area);
-    printf("a area da cidade 2: %s e de %f\n", nomeCidade2, area2);
-    printf("a carta 1 ( %s ) venceu!", nomeCidade);
-} else {
-    printf("a area da cidade 1: %s e de %f\n", nomeCidade, area);
-    printf("a area da cidade 2: %s e de %f\n", nomeCidade2, area2);
-    printf("a carta 2 ( %s ) venceu!\n", nomeCidade2);
-};
-    break;
-case 3:
-if (pib > pib2) {
-    printf("O pib da cidade 1: %s e de %f\n", nomeCidade, pib);
-    printf("o pib da cidade 2: %s e de %f\n", nomeCidade2, pib2);
-    printf("a carta 1 ( %s ) venceu!\n", nomeCidade);
-} else {
-    printf("a area da cidade 1: %s e de %f\n", nomeCidade, pib);
-    printf("a area da cidade 2: %s e de %f\n", nomeCidade2, pib2);
-    printf("a carta 2 ( %s ) venceu!\n", nomeCidade2);
-};
-    break;
-case 4:
-if (numero_de_pontos_turisticos > numero_de_pontos_turisticos2) {
-    printf("O numero de P. turisticos da cidade 1: %s e de %d\n", nomeCidade, numero_de_pontos_turisticos);
-    printf("O numero de P. turisticos 2: %s e de %d\n", nomeCidade2, numero_de_pontos_turisticos2);
-    printf("a carta 1 ( %s ) venceu!\n", nomeCidade);
-} else {
-    printf("O numero de P. turisticos da cidade 1: %s e de %f\n", nomeCidade, numero_de_pontos_turisticos);
-    printf("O numero de P. turisticos da cidade 2: %s e de %f\n", nomeCidade2, numero_de_pontos_turisticos2);
-    printf("a carta 2 ( %s ) venceu!\n", nomeCidade2);
-};
-    break;
+// Mostra o menu para o Usuario
+     printf("Escolha um indicador para comparar: \n");
+     printf("1 - Populacao.\n");
+     printf("2 - area.\n");
+     printf("3 - PIB.\n");
+     printf("4 - Pontos Turisticos.\n");
+     printf("5 - Dencidade Populacional.\n");
+     printf("6 - PIB PerCapta.\n");
+     printf("7 - Super Poder\n");
+     scanf("%d", &opcao);
+
+// Mostra o menu sem a Opçao escolhida anteriormente pelo usuario e avalia a escolha do usuario.
+
+     switch (opcao) {
+
+     case 1:
+     printf("Escolha outro indicador para comparar: \n");
+     printf("1 - \n");
+     printf("2 - Area.\n");
+     printf("3 - PIB.\n");
+     printf("4 - Pontos Turisticos.\n");
+     printf("5 - Densidade Populacional.\n");
+     printf("6 - PIB PerCapta.\n");
+     printf("7 - Super Poder\n");
+     scanf("%d", &opcao2);
+
+     resultado = populacao > populacao2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = populacao - populacao2;
+        printf("A populacao da cidade %s e de %d habitantes. A diferenca e de: %d habitantes.\n", nomeCidade , populacao, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = populacao2 - populacao;
+        printf("A populacao da cidade %s e de %d habitantes. A diferenca e de: %d habitantes.\n", nomeCidade2 , populacao2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+        break;
+     case 2:
+     printf("Escolha outro indicador para comparar: \n");
+     printf("1 - Populacao.\n");
+     printf("2 - \n");
+     printf("3 - PIB.\n");
+     printf("4 - Pontos Turisticos.\n");
+     printf("5 - Densidade Populacional.\n");
+     printf("6 - PIB PerCapta.\n");
+     printf("7 - Super Poder\n");
+     scanf("%d", &opcao2);
+
+     resultado = area > area2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = area - area2;
+        printf("A area da cidade %s e de %f km2. A diferenca e de: %f km2.\n", nomeCidade , area, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = area2 - area;
+        printf("A area da cidade %s e de %f km2. A diferenca e de: %f km2.\n", nomeCidade2 , area2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+        break;
+     case 3:
+     printf("Escolha outro indicador para comparar: \n");
+     printf("1 - Populacao.\n");
+     printf("2 - Area.\n");
+     printf("3 - \n");
+     printf("4 - Pontos Turisticos.\n");
+     printf("5 - Densidade Populacional.\n");
+     printf("6 - PIB PerCapta.\n");
+     printf("7 - Super Poder\n");
+     scanf("%d", &opcao2);
+
+     resultado = pib > pib2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = pib - pib2;
+        printf("O PIB de %s e de %f. A diferenca e de: %.2f milhoes.\n", nomeCidade , pib, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = pib2 - pib;
+        printf("O PIB de %s e de %f. A diferenca e de: %.2f milhoes.\n", nomeCidade2 , pib2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+
+        break;
+     case 4:
+     printf("Escolha outro indicador para comparar: \n");
+     printf("1 - Populacao.\n");
+     printf("2 - Area.\n");
+     printf("3 - PIB\n");
+     printf("4 - \n");
+     printf("5 - Densidade Populacional.\n");
+     printf("6 - PIB PerCapta.\n");
+     printf("7 - Super Poder\n");
+     scanf("%d", &opcao2);
+
+     resultado = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = numero_de_pontos_turisticos - numero_de_pontos_turisticos2;
+        printf("O numero de PontosA Turisticos de  %s e de %d km2. A diferenca e de: %f km2.\n", nomeCidade , numero_de_pontos_turisticos, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = numero_de_pontos_turisticos2 -  numero_de_pontos_turisticos;
+        printf("O numero de Pontos Turisticos de %s e de %d km2. A diferenca e de: %f km2.\n", nomeCidade2 , numero_de_pontos_turisticos2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+        break;
     case 5:
-if (densidadePopulacional < densidadePopulacional2) {
-    printf("A densidade pupilacional da cidade 1: %s e de %d\n", nomeCidade, densidadePopulacional);
-    printf("A densidade pupilacional  2: %s e de %d\n", nomeCidade2, densidadePopulacional2);
-    printf("a carta 1 ( %s ) venceu!\n", nomeCidade);
-} else {
-    printf("A densidade pupilacional da cidade 1: %s e de %f\n", nomeCidade, densidadePopulacional);
-    printf("A densidade pupilacional da cidade 2: %s e de %f\n", nomeCidade2, densidadePopulacional2);
-    printf("a carta 2 ( %s ) venceu!\n", nomeCidade2);
-};
-    break;
+     printf("Escolha outro indicador para comparar: \n");
+     printf("1 - Populacao.\n");
+     printf("2 - Area.\n");
+     printf("3 - PIB\n");
+     printf("4 - Pontos Turisticos\n");
+     printf("5 - \n");
+     printf("6 - PIB PerCapta.\n");
+     printf("7 - Super Poder\n");
+     scanf("%d", &opcao2);
+
+     resultado = densidadePopulacional > densidadePopulacional2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = densidadePopulacional - densidadePopulacional2;
+        printf("A densidade Populacional %s e de %f. A diferenca e de: %f.\n", nomeCidade , densidadePopulacional, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = densidadePopulacional2 - densidadePopulacional;
+        printf("A densidade Populacional %s e de %f. A diferenca e de: %f.\n", nomeCidade2 , densidadePopulacional2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+        break;
     case 6:
-if (pibPerCapita > pibPerCapita2) {
-    printf("O PIB per Capita da cidade 1: %s e de %d\n", nomeCidade, pibPerCapita);
-    printf("O PIB per Capita 2: %s e de %d\n", nomeCidade2, pibPerCapita2);
-    printf("a carta 1 ( %s ) venceu!\n", nomeCidade);
-} else {
-    printf("O PIB per Capita da cidade 1: %s e de %f\n", nomeCidade, pibPerCapita);
-    printf("O PIB per Capita da cidade 2: %s e de %f\n", nomeCidade2, pibPerCapita2);
-    printf("a carta 2 ( %s ) venceu!\n", nomeCidade2);
-};
-    break;
+     printf("Escolha outro indicador para comparar: \n");
+     printf("1 - Populacao.\n");
+     printf("2 - Area.\n");
+     printf("3 - PIB\n");
+     printf("4 - Pontos Turisticos.\n");
+     printf("5 - Densidade Populacional.\n");
+     printf("6 - \n");
+     printf("7 - Super Poder\n");
+     scanf("%d", &opcao2);
 
-default:
-    break;
-}
+     resultado = pibPerCapita > pibPerCapita2 ? 1 : 0;
 
+     if (resultado == 1 ) {
+        diferenca = pibPerCapita - pibPerCapita2;
+        printf("O PIB perCapita %s e de %f. A diferenca e de: %f.\n", nomeCidade , pibPerCapita, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = pibPerCapita2 - pibPerCapita;
+        printf("O PIB perCapita %s e de %f. A diferenca e de: %f.\n", nomeCidade2 , pibPerCapita2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+        break;
+   
+case 7:
+     printf("Escolha outro indicador para comparar: \n");
+     printf("1 - Populacao.\n");
+     printf("2 - Area.\n");
+     printf("3 - PIB\n");
+     printf("4 - Pontos Turisticos.\n");
+     printf("5 - Densidade Populacional.\n");
+     printf("6 - PIB PerCapta\n");
+     printf("7 - \n");
+     scanf("%d", &opcao2);
+
+     resultado = superPoder > superPoder2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = superPoder - superPoder2;
+        printf("O superPoder %s e de %f. A diferenca e de: %f.\n", nomeCidade , superPoder, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = superPoder2 - superPoder;
+        printf("O superPoder %s e de %f. A diferenca e de: %f.\n", nomeCidade2 , superPoder2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+        break;
+
+     default:
+     printf("Essa Opcao nao existe.");
+        break;
+     }
+
+ // Estrutura switch para avaliar a escolha do usuário
+
+     switch (opcao2) {
+
+     case 1:
+     resultado = populacao > populacao2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = populacao - populacao2;
+        printf("A populacao da cidade %s e de %d habitantes. A diferenca e de: %d habitantes.\n", nomeCidade , populacao, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = populacao2 - populacao;
+        printf("A populacao da cidade %s e de %d habitantes. A diferenca e de: %d habitantes.\n", nomeCidade2 , populacao2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+        break;
+    case 2:
+     resultado = area > area2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = area - area2;
+        printf("A area da cidade %s e de %f km2. A diferenca e de: %f km2.\n", nomeCidade , area, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = area2 - area;
+        printf("A area da cidade %s e de %f km2. A diferenca e de: %f km2.\n", nomeCidade2 , area2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+     
+        break;
+    case 3:
+    
+    resultado = pib > pib2 ? 1 : 0;
+
+     if (resultado == 1 ) {
+        diferenca = pib - pib2;
+        printf("A area da cidade %s e de %f . A diferenca e de: %f.\n", nomeCidade , pib, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+        pontuacao += 1;
+
+     } else {
+        diferenca = pib2 - pib;
+        printf("A area da cidade %s e de %f. A diferenca e de: %f.\n", nomeCidade2 , pib2, diferenca);
+        printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+        pontuacao2 += 1;
+     }
+
+        break; 
+     case 4:
+
+    resultado = numero_de_pontos_turisticos > numero_de_pontos_turisticos2 ? 1 : 0;
+
+    if (resultado == 1 ) {
+       diferenca = numero_de_pontos_turisticos - numero_de_pontos_turisticos2;
+       printf("O numero de pontos turistico de %s e de %f . A diferenca e de: %f km2.\n", nomeCidade , numero_de_pontos_turisticos, diferenca);
+       printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+       pontuacao += 1;
+
+    } else {
+       diferenca = numero_de_pontos_turisticos2 -  numero_de_pontos_turisticos;
+       printf("O numero de pontos turistico de %s e de %f . A diferenca e de: %f km2.\n", nomeCidade2 , numero_de_pontos_turisticos2, diferenca);
+       printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+       pontuacao2 += 1;
+    }
+
+        break;  
+    case 5:
+    
+
+    resultado = densidadePopulacional < densidadePopulacional2 ? 1 : 0;
+
+    if (resultado == 1 ) {
+       diferenca = densidadePopulacional - densidadePopulacional2;
+       printf("A densidade Populacional da cidade %s e de %f. A diferenca e de: %f.\n", nomeCidade , densidadePopulacional, diferenca);
+       printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+       pontuacao += 1;
+
+    } else {
+       diferenca = densidadePopulacional2 - densidadePopulacional;
+       printf("A densidade Populacional %s e de %f km2. A diferenca e de: %f km2.\n", nomeCidade2 , densidadePopulacional2, diferenca);
+       printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+       pontuacao2 += 1;
+    }
+
+        break;
+    case 6:
+   
+        resultado = pibPerCapita > pibPerCapita2 ? 1 : 0;
+   
+        if (resultado == 1 ) {
+           diferenca = pibPerCapita - pibPerCapita2;
+           printf("O PIB perCapta da cidade %s e de %f . A diferenca e de: %f.\n", nomeCidade , pibPerCapita, diferenca);
+           printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+           pontuacao += 1;
+   
+        } else {
+           diferenca = pibPerCapita2 - pibPerCapita;
+           printf("O PIB perCapta da cidade %s e de %f . A diferenca e de: %f.\n", nomeCidade2 , pibPerCapita2, diferenca);
+           printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+           pontuacao2 += 1;
+        }
+   
+        break;
+
+    case 7:
+   
+        resultado = superPoder > superPoder2 ? 1 : 0;
+   
+        if (resultado == 1 ) {
+           diferenca = superPoder - superPoder2;
+           printf("O superPoder da cidade %s e de %f . A diferenca e de: %f.\n", nomeCidade , superPoder, diferenca);
+           printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta, nomeCidade);
+           pontuacao += 1;
+   
+        } else {
+           diferenca = superPoder2 - superPoder;
+           printf("O superPoder da cidade %s e de %f . A diferenca e de: %f.\n", nomeCidade2 , superPoder2, diferenca);
+           printf("A cidade %s - %s ganhou 1 ponto.\n ", codigo_da_carta2, nomeCidade2);
+           pontuacao2 += 1;
+        }
+   
+        break; 
+        
+     default:
+     printf("Essa Opcao nao existe.");
+        break;
+     }
+
+// Mostra para o Usuario o resultado.
+
+     if(pontuacao == pontuacao2 ) {
+        printf("O resultado e: EMPATE!!!\n");
+     } else {
+        resultadoFinal = pontuacao > pontuacao2 ? 1 : 2;
+        if (resultadoFinal == 1) {
+            printf("A a cidade %s - %s e a Vencedora!!!. Com %d Ponto(s)\n" , codigo_da_carta, nomeCidade, pontuacao);
+            printf("\n");
+         } else {
+            printf("A a cidade %s - %s e a Vencedora!!!. Com %d Ponto(s)\n" , codigo_da_carta2, nomeCidade2, pontuacao2);
+            printf("\n");
+         };
+     };
 
      
-    return 0; // Indica que o programa foi executado com sucesso.
+
+return 0; // Indica que o programa foi executado com sucesso.
 }
